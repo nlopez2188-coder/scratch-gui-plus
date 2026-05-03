@@ -317,5 +317,21 @@ export default [
             />
         ),
         helpLink: 'https://scratch.mit.edu/vernier'
+    },
+        {
+        name: 'Custom Procedures',
+        extensionId: 'proceduresPlus',
+        iconURL: musicIconURL, // Placeholder
+        insetIconURL: musicInsetIconURL, // Placeholder
+        description: (
+            <FormattedMessage
+                defaultMessage="Advanced custom block features like return values."
+                description="Description for the custom procedures extension"
+                id="gui.extension.proceduresplus.description"
+            />
+        ),
+        featured: true
     }
+];
+
 ];
