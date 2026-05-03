@@ -7,6 +7,7 @@ import {defineMessages, injectIntl, intlShape, FormattedMessage} from 'react-int
 import booleanInputIcon from './icon--boolean-input.svg';
 import textInputIcon from './icon--text-input.svg';
 import labelIcon from './icon--label.svg';
+import blockInputIcon from './icon--block-input.svg'; // Add this line
 
 import styles from './custom-procedures.css';
 
@@ -55,6 +56,32 @@ const CustomProcedures = props => (
                         />
                     </div>
                 </div>
+                <div
+    className={styles.optionCard}
+    role="button"
+    tabIndex="0"
+    onClick={props.onAddBlock}
+>
+    <img
+        className={styles.optionIcon}
+        src={blockInputIcon}
+    />
+    <div className={styles.optionTitle}>
+        <FormattedMessage
+            defaultMessage="Add an input"
+            description="Label for button to add a C-block input"
+            id="gui.customProcedures.addAnInputBlock"
+        />
+    </div>
+    <div className={styles.optionDescription}>
+        <FormattedMessage
+            defaultMessage="block"
+            description="Description of the C-block input type"
+            id="gui.customProcedures.blockType"
+        />
+    </div>
+</div>
+
                 <div
                     className={styles.optionCard}
                     role="button"
