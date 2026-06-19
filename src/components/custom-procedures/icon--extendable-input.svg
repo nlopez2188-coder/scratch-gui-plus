@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+    <!-- Primary Input Base (representing 'starts' group) -->
+    <rect x="4" y="10" width="24" height="12" rx="6" fill="#FFFFFF" stroke="#575E75" stroke-width="3" stroke-linejoin="round" />
+    
+    <!-- Repeated Extension Base (representing 'proceeds' group) -->
+    <rect x="12" y="24" width="24" height="12" rx="6" fill="#FFFFFF" stroke="#575E75" stroke-width="3" stroke-linejoin="round" stroke-dasharray="4 2" />
+    
+    <!-- Add Indicator Circle Badge -->
+    <circle cx="38" cy="24" r="7" fill="#4C97FF" stroke="#575E75" stroke-width="3" />
+    
+    <!-- Plus Sign (+) inside the badge -->
+    <line x1="35" y1="24" x2="41" y2="24" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+    <line x1="38" y1="21" x2="38" y2="27" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+</svg>
