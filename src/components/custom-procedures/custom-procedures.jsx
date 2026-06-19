@@ -11,6 +11,7 @@ import numberInputIcon from './icon--number-input.svg';
 import statementIcon from './icon--statement-input.svg';
 import labelIcon from './icon--label.svg';
 import pickerIcon from './icon--eye-dropper.svg';
+import extendableInputIcon from './icon--extendable-input.svg'; // Added extendable icon
 
 import styles from './custom-procedures.css';
 
@@ -153,6 +154,26 @@ const CustomProcedures = props => (
                         />
                     </div>
                 </div>
+                {/* New Option Card for Extendable Inputs */}
+                <div
+                    className={styles.optionCard}
+                    role="button"
+                    tabIndex="0"
+                    onClick={props.onAddExtendable}
+                >
+                    <img
+                        className={styles.optionIcon}
+                        src={extendableInputIcon}
+                        draggable={false}
+                    />
+                    <div className={styles.optionDescription}>
+                        <FormattedMessage
+                            defaultMessage="extendable"
+                            description="Label for button to add an extendable input group"
+                            id="gui.customProcedures.addExtendable"
+                        />
+                    </div>
+                </div>
             </div>
             <div className={styles.optionTitle}>
                 <FormattedMessage
@@ -281,6 +302,7 @@ CustomProcedures.propTypes = {
     onAddLabel: PropTypes.func.isRequired,
     onAddText: PropTypes.func.isRequired,
     onAddNumber: PropTypes.func.isRequired,
+    onAddExtendable: PropTypes.func.isRequired, // Added
     onCancel: PropTypes.func.isRequired,
     onOk: PropTypes.func.isRequired,
     onToggleWarp: PropTypes.func.isRequired,
