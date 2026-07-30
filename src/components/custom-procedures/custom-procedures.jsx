@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import Modal from '../../containers/modal.jsx';
 import Box from '../box/box.jsx';
 import FancyCheckbox from '../tw-fancy-checkbox/checkbox.jsx';
@@ -24,24 +24,6 @@ const messages = defineMessages({
 });
 
 const CustomProcedures = props => {
-    const [inputIcon, setInputIcon] = useState(textInputIcon);
-    useEffect(() => {
-        switch (props.menuOption) {
-        case 'stringornumber': // To be split up as string and number types on a later date
-            setInputIcon(textInputIcon);
-            break;
-        case 'boolean':
-            setInputIcon(booleanInputIcon);
-            break;
-        case 'object':
-            setInputIcon(objectInputIcon);
-            break;
-        case 'array':
-            setInputIcon(arrayInputIcon);
-            break;
-        }
-    }, [props.menuOption]);
-
     return (
         <Modal
             className={styles.modalContent}
@@ -63,7 +45,15 @@ const CustomProcedures = props => {
                     >
                         <img
                             className={styles.optionIcon}
-                            src={inputIcon}
+                            src={
+                                props.menuOption === 'boolean'
+                                    ? booleanInputIcon
+                                    : props.menuOption === 'object'
+                                    ? objectInputIcon
+                                    : props.menuOption === 'array'
+                                    ? arrayInputIcon
+                                    : textInputIcon
+                            }
                             draggable={false}
                         />
                         <div className={styles.optionTitle}>
@@ -77,6 +67,7 @@ const CustomProcedures = props => {
                             className={styles.optionMenu}
                             onClick={props.handlePropagation}
                             onChange={props.handleInputMenuChange}
+                            value={props.menuOption}
                         >
                             <option value="stringornumber">number or text</option>
                             <option value="boolean">boolean</option>
@@ -258,6 +249,19 @@ const CustomProcedures = props => {
                 <div className={styles.checkboxRow}>
                     <label>
                         <FancyCheckbox
+                            checked={props.hat}
+                            onChange={props.onToggleHat}
+                        />
+                        <FormattedMessage
+                            defaultMessage="Hat block"
+                            description="Label for checkbox to make custom procedure a hat block"
+                            id="gui.customProcedures.hatBlock"
+                        />
+                    </label>
+                </div>
+                <div className={styles.checkboxRow}>
+                    <label>
+                        <FancyCheckbox
                             checked={props.warp}
                             onChange={props.onToggleWarp}
                         />
@@ -310,15 +314,20 @@ const CustomProcedures = props => {
 
 CustomProcedures.propTypes = {
     componentRef: PropTypes.func.isRequired,
+    colour: PropTypes.string,
     intl: intlShape,
+    menuOption: PropTypes.string,
     onAddInput: PropTypes.func.isRequired,
     onAddDropdown: PropTypes.func.isRequired,
     onAddBranch: PropTypes.func.isRequired,
     onAddLabel: PropTypes.func.isRequired,
     handlePropagation: PropTypes.func.isRequired,
     handleInputMenuChange: PropTypes.func.isRequired,
+    setColor: PropTypes.func.isRequired,
     onCancel: PropTypes.func.isRequired,
     onOk: PropTypes.func.isRequired,
+    onToggleHat: PropTypes.func.isRequired,
+    hat: PropTypes.bool.isRequired,
     onToggleWarp: PropTypes.func.isRequired,
     warp: PropTypes.bool.isRequired,
     onToggleGlobal: PropTypes.func.isRequired,
